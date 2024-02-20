@@ -1,32 +1,31 @@
-Elefant e1, e2, e3;
-float speed1, speed2, speed3;
+ Elefant[] elefanter = new Elefant[3];
+float speed;
 
 void setup() {
   size(640, 600);
   noStroke();
-  e1 = new Elefant(300, 300, 0.1);
-  e2 = new Elefant(100, 500, 1.0);
-  e3 = new Elefant(500, 200,-1.5);
+  Elefant e1 = new Elefant(300, 300, 0.1);
+  Elefant e2 = new Elefant(100, 500, 1.0);
+  Elefant e3 = new Elefant(500, 200,-1.5);
+  elefanter[0] = e1;
+  elefanter[1] = e2;
+  elefanter[2] = e3;
 }
 
 void draw() {
   background(102);
 
-  e1.update(mouseX, mouseY, speed1);
-  e2.update(mouseX, mouseY, speed2);
-  e3.update(mouseX, mouseY, speed3);
+  for (Elefant e : elefanter) {
+    e.update(mouseX, mouseY, speed);
+    e.display();
+  }
 
-  e1.display();
-  e2.display();
-  e3.display();
-  
-  speed1=speed2=speed3=0;
+  speed = 0;
   
 }
 void mousePressed() {
-  speed1 = 1;
-  speed2 = 1;
-  speed3 = 1;
+  Elefant nyElefant = new Elefant(int(random(30,width-30)),int(random(50,height-50)),random(-3,3));
+ elefanter = (Elefant[]) append(elefanter,nyElefant);
 }
   
 
